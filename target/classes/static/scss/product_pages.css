@@ -1,0 +1,25 @@
+.small-container {
+  max-width: 1500px !important;
+}
+.small-container img {
+  height: 350px;
+}
+.small-container .fa-cart-plus {
+  font-size: large;
+}
+.small-container button {
+  font-family: cursive !important;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}/*# sourceMappingURL=product_pages.css.map */
+
+.row{
+    text-align: center;
+}
+
+.col-4{
+    height: 500px !important;
+}

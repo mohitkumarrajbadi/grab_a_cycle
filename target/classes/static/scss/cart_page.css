@@ -1,0 +1,41 @@
+.col-6 {
+  width: 70% !important;
+  display: inline-flex;
+}
+.col-6 img {
+  height: 200px !important;
+  width: 190px !important;
+}
+.col-6 input {
+  text-align: center;
+  border-radius: 30px;
+  padding: 3px;
+}
+.col-6 .btn {
+  font-size: x-small;
+  padding: 3px 10px;
+}
+.col-6 h4 {
+  margin: auto;
+}
+.col-6 p {
+  margin: auto;
+}
+.col-6 .rating, .col-6 .text-center {
+  margin: auto;
+}
+.col-6 h3 {
+  text-align: end !important;
+  width: 83% !important;
+}
+
+.row {
+  display: block;
+  text-align: center;
+  margin: auto;
+}/*# sourceMappingURL=cart_page.css.map */
+
+h3{
+    text-align: end !important;
+    margin-right: 250px;
+}

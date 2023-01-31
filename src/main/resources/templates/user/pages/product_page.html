@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grab a bicycle | The online shopping store </title>
+  <link rel="stylesheet" href="scss/style.css">
+  <link rel="stylesheet" href="scss/product_pages.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="header">
+
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="images/logo.png" width="125px" class="img-responsive">
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="index">Home</a></li>
+          <li><a href="products">Products</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <li sec:authorize="isAnonymous()"><a href="account">Account</a></li>
+          <li sec:authorize="isAuthenticated()"><a href="/user"><div sec:authentication="name"></div> </a> </li>
+        </ul>
+      </nav>
+      <a href="cart"><img src="images/cart.png" width="30px" height="30px"></a>
+      <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- ###################### features products ################ -->
+<div class="small-container">
+
+  <h2 class="title">Latest Products</h2>
+  <div class="row">
+    <div class="col-4" th:each="bicycle: ${bicycles}">
+      <img th:src = "${bicycle.image}" alt="Bicycle Image" />
+      <h4 th:text = "${bicycle.name}" />
+      <div class="rating" >
+        <i class="fa fa-star" th:each="i: ${#numbers.sequence(0, bicycle.ratings - 1)}"></i>
+        <i class="fa fa-star-o" th:if="${bicycle.ratings} < 5"></i>
+
+      </div>
+      <p th:text = "${bicycle.price}" />
+      <div class="text-center">
+        <button class="btn">ADD TO CART <i class="fa fa-cart-plus"></i></button>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- ################ footer##############-->
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col-1">
+        <h3>Download our App</h3>
+        <p>Download App for Andriod and ios mobile phone</p>
+        <div class="app-logo">
+          <img src="images/play-store.png">
+          <img src="images/app-store.png">
+
+        </div>
+      </div>
+      <div class="footer-col-2">
+        <img src="images/logo.jpg">
+        <p>Our purpose is to sustainably make the pleasure
+          and benefits of cycle accessible to the many. </p>
+      </div>
+      <div class="footer-col-3">
+        <h3>Useful links</h3>
+        <ul>
+          <li>Coupons</li>
+          <li>Blog Post</li>
+          <li>Return Policy</li>
+          <li>Join Affiliate</li>
+        </ul>
+      </div>
+      <div class="footer-col-4">
+        <h3>Follow us</h3>
+        <ul>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Instagram</li>
+          <li>You Tube</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="copyright">Copyright 2023-Fico Project</p>
+  </div>
+</div>
+<!-- ######### js for toggle menu -->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+      MenuItems.style.maxHeight= "0px";
+
+    function menutoggle(){
+        if(MenuItems.style.maxHeight=="0px")
+        {
+            MenuItems.style.maxHeight="200px";
+        }
+        else
+        {
+            MenuItems.style.maxHeight="0px";
+        }
+    }
+ </script>
+</body>
+</html>
